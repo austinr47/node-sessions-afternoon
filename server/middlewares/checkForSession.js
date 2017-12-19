@@ -1,6 +1,6 @@
 module.exports = function(res, req, next) {
-    if(!req.session.user) {
-        req.session.user = {
+    if(!req.user) {
+        req.user = {
             username: '',
             cart: [],
             total: 0
