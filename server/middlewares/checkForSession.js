@@ -1,10 +1,19 @@
-module.exports = function(res, req, next) {
-    if(!req.user) {
-        req.user = {
-            username: '',
-            cart: [],
-            total: 0
-        }
-    }
+// module.exports = function(res, req, next) {
+//     if(!req.session.user) {
+//         req.session.user = {
+//             username: '',
+//             cart: [],
+//             total: 0.00
+//         }
+//     }
+//     next();
+// }
+module.exports = function( req, res, next ) {
+    const { session } = req;
+  
+    if ( !session.user ) {
+      session.user = { username: '', cart: [], total: 0.00 };
+    } 
+    
     next();
-}
+  };
